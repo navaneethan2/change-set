@@ -2,7 +2,7 @@ pipeline{
     agent any
     stages{
         stage('check change'){
-            when {changeser "APIParent"}
+            when {changeset "APIParent"}
             steps{
                 sh "echo I will build now"
             }
