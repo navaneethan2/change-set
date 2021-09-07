@@ -1,4 +1,4 @@
-PROJECT = "${env.PROJECT}"
+//PROJECT = "${env.PROJECT}"
 
 pipeline{
     agent any
@@ -8,7 +8,7 @@ pipeline{
         stage('check change'){
             steps{
                 script{
-                    println("project -  ${PROJECT}")
+                    println("project - ${env.PROJECT}")
                     //println("project- ${PROJECT}")
                 }
 
