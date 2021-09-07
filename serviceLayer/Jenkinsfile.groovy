@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('check change'){
             steps{
-                echo "project - ${env.PROJECT}"
+                echo "project - ${env.JOB_BASE_NAME}"
 
             }
         }
