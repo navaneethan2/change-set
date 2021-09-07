@@ -1,4 +1,3 @@
-//PROJECT = "${env.PROJECT}"
 
 pipeline{
     agent any
@@ -7,10 +6,7 @@ pipeline{
     stages{
         stage('check change'){
             steps{
-                script{
-                    println("project - ${env.PROJECT}")
-                    //println("project- ${PROJECT}")
-                }
+                echo "The build number is ${env.BUILD_NUMBER}"
 
             }
         }
