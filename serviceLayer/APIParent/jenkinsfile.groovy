@@ -5,6 +5,12 @@ def printParameters(){
     println("project                                 - ${project}")
 }
 
+def buildNightlyBuild(){
+    build job: "orc", propagate: true, wait: true,
+            parameters: [
+                    string(name: 'project', value: "${params.project}"),
+            ]
+}
 
 
 pipeline{
@@ -15,7 +21,7 @@ pipeline{
     }
     stages{
         stage('check change'){
-            when {changeset "*/APIParent/**"}
+            //when {changeset "*/APIParent/**"}
             steps{
                 sh "echo I will build now"
                 script {
@@ -33,6 +39,16 @@ pipeline{
                         [string(name: 'PROJECT', value: ${params.PROJECT})]
                 ])*/
             }
+        }
+
+        stage('change set'){
+            when {changeset "*/APIParent/**"}
+            steps{
+                script{
+                    buildNightlyBuild()
+                }
+            }
+
         }
     }
 }
