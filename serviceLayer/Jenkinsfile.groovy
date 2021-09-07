@@ -1,4 +1,4 @@
-def string PROJECT = "${env.PROJECT}"
+PROJECT = "${env.PROJECT}"
 
 pipeline{
     agent any
