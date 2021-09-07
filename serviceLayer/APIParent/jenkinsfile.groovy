@@ -1,3 +1,12 @@
+def printParameters(){
+    println("")
+    println("*** Input Parameters ***")
+    println("================================")
+    println("project                                 - ${project}")
+}
+
+
+
 pipeline{
     agent any
 
@@ -9,9 +18,20 @@ pipeline{
             when {changeset "*/APIParent/**"}
             steps{
                 sh "echo I will build now"
-                build (job:'orc',parameters: [
-                        [$class: 'StringParameterValue', name: 'PROJECT', value: ${params.PROJECT}]
-                ])
+                script {
+
+                    try {
+                        printParameters()
+                    } catch (error) {
+                        echo error.message
+                        echo "IGNORE: Failure"
+                    } finally {
+                    }
+
+                }
+                /*build (job:'orc',parameters: [
+                        [string(name: 'PROJECT', value: ${params.PROJECT})]
+                ])*/
             }
         }
     }
