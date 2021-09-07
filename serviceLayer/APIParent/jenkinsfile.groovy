@@ -10,7 +10,7 @@ pipeline{
             steps{
                 sh "echo I will build now"
                 build (job:'orc',parameters: [
-                        [$class: 'StringParameterValue', name: 'PROJECT', value: ${params.PROJECT}],
+                        [$class: 'StringParameterValue', name: 'PROJECT', value: ${params.PROJECT}]
                 ])
             }
         }
