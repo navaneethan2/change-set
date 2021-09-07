@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('check change'){
             steps{
-                echo "The build number is ${env.BUILD_NUMBER}"
+                echo "project - ${env.PROJECT}"
 
             }
         }
