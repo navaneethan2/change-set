@@ -9,7 +9,7 @@ pipeline{
 
             steps{
                 script{
-                    sh "i will build now"
+                    sh "echo i will build now"
                 }
             }
 
