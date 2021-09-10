@@ -1,0 +1,19 @@
+import sun.util.resources.cldr.nyn.CalendarData_nyn_UG
+
+pipeline{
+  agent any
+
+    stages {
+        stage('change set'){
+            when {changeset "*/AlertsAPI/**"}
+
+            steps{
+                script{
+                    sh "i will build now"
+                }
+            }
+
+        }
+    }
+
+}
