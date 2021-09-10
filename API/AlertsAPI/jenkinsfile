@@ -5,7 +5,8 @@ pipeline{
 
     stages {
         stage('change set'){
-            when { not{changeset "*/AlertsAPI/**"}}
+            when { not {
+                changeset "*/AlertsAPI/**"}}
 
             steps{
                 script{
