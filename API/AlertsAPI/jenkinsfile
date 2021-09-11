@@ -23,7 +23,7 @@ pipeline{
 
         stage('Orchestration'){
             when { allOf {
-                changeset "*/AlertsAPI/**"
+                changeset "*/${JOB_NAME}/**"
                 expression { params.ParamA == 'Orchestration' }
             }
 
