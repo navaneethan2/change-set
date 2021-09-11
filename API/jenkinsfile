@@ -1,0 +1,41 @@
+def JOB_NAME = "${env.JOB_BASE_NAME}"
+
+pipeline{
+  agent any
+
+    parameters{
+
+        string(name:'ParamA', defaultValue:'Build')
+    }
+
+    stages {
+        stage('Build'){
+            when{
+                expression{ params.ParamA == 'Build'}
+            }
+            steps{
+                script{
+                    sh "echo i will build now ${JOB_NAME}"
+                }
+            }
+
+        }
+
+        stage('Orchestration'){
+            when { allOf {
+                changeset "*/${JOB_NAME}/**"
+                expression { params.ParamA == 'Orchestration' }
+            }
+
+            }
+            steps{
+                script{
+                    sh "echo i will build now as ${params.ParamA} and i have a latest commit in ${JOB_NAME}"
+                }
+            }
+
+        }
+
+    }
+
+}
