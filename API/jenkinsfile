@@ -1,10 +1,10 @@
-def JOB_NAME = "${env.JOB_BASE_NAME}"
+//def JOB_NAME = "${env.JOB_BASE_NAME}"
 
 pipeline{
   agent any
 
     parameters{
-        choice(name:'API to build',choices:['AlertAPI','CustomerAPI'])
+        choice(name:'API_to_build',choices:['AlertAPI','CustomerAPI'])
         booleanParam(name: 'Build',defaultValue: false)
         //string(name:'ParamA', defaultValue:'Build')
     }
@@ -16,7 +16,7 @@ pipeline{
             }
             steps{
                 script{
-                    sh "echo i will build now ${JOB_NAME}"
+                    sh "echo i will build now ${params.API_to_build}"
                 }
             }
 
@@ -24,14 +24,14 @@ pipeline{
 
         stage('Orchestration'){
             when { allOf {
-                changeset "*/${JOB_NAME}/**"
+                changeset "*/${params.API_to_build}/**"
                 expression { params.ParamA == 'Orchestration' }
             }
 
             }
             steps{
                 script{
-                    sh "echo i will build now as ${params.ParamA} and i have a latest commit in ${JOB_NAME}"
+                    sh "echo i will build now, and i have a latest commit in ${params.API_to_build}"
                 }
             }
 
