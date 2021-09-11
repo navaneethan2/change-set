@@ -4,10 +4,7 @@ pipeline{
   agent any
 
     stages {
-        stage('change set'){
-            when { not {
-                changeset "*/AlertsAPI/**"}}
-
+        stage('Build'){
             steps{
                 script{
                     sh "echo i will build now"
@@ -15,6 +12,21 @@ pipeline{
             }
 
         }
+
+        stage('Orchestration'){
+            when {
+
+                expression { params.ParamA == 'Orchestration'} && changeset "*/AlertsAPI/**"
+
+            }
+            steps{
+                script{
+                    sh "echo i will build now as ${params.ParamA} and i have a latest commit"
+                }
+            }
+
+        }
+
     }
 
 }
