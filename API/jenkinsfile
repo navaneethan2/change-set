@@ -4,14 +4,15 @@ pipeline{
   agent any
 
     parameters{
-
-        string(name:'ParamA', defaultValue:'Build')
+        choice(name:'API to build',choices:['AlertAPI','CustomerAPI'])
+        booleanParam(name: 'Build',defaultValue: false)
+        //string(name:'ParamA', defaultValue:'Build')
     }
 
     stages {
         stage('Build'){
             when{
-                expression{ params.ParamA == 'Build'}
+                expression{ params.Build == true}
             }
             steps{
                 script{
