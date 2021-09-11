@@ -24,8 +24,7 @@ pipeline{
         stage('Orchestration'){
             when {
 
-                expression { params.ParamA == 'Orchestration'} &&
-                {changeset "*/AlertsAPI/**"}
+                expression { params.ParamA == 'Orchestration' && changeset "*/AlertsAPI/**"}
 
             }
             steps{
