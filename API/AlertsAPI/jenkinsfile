@@ -1,4 +1,4 @@
-
+def JOB_NAME = "${env.JOB_NAME}"
 
 pipeline{
   agent any
@@ -15,7 +15,7 @@ pipeline{
             }
             steps{
                 script{
-                    sh "echo i will build now"
+                    sh "echo i will build now ${JOB_NAME}"
                 }
             }
 
