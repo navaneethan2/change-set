@@ -3,8 +3,16 @@
 pipeline{
   agent any
 
+    parameters{
+
+        string(name:'ParamA', defaultValue:'Build')
+    }
+
     stages {
         stage('Build'){
+            when{
+                expression{ params.ParamA == 'Build'}
+            }
             steps{
                 script{
                     sh "echo i will build now"
