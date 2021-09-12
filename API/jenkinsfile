@@ -15,6 +15,7 @@ pipeline{
             steps{
                 script{
                     println("${API_to_build}")
+                    println("${Build}")
                 }
             }
         }
