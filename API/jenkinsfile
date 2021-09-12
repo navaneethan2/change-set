@@ -5,24 +5,14 @@ pipeline{
 
     parameters{
         choice(name:'API_to_build',choices:['AlertAPI','CustomerAPI'])
-        booleanParam(name: 'Build_All',defaultValue: false)
-        string(name:'ParamA', defaultValue:'Build')
+        booleanParam(name: 'Build',defaultValue: false)
+        //string(name:'ParamA', defaultValue:'Build')
     }
 
     stages {
-
-        stage('Debug') {
-            steps{
-                script{
-                    println("${API_to_build}")
-                    println("${Build_All}")
-                    //echo bool.getClass().toString()
-                }
-            }
-        }
         stage('Build'){
             when{
-                expression{ params.Build_All == true}
+                expression{ params.Build == true}
             }
             steps{
                 script{
@@ -41,9 +31,6 @@ pipeline{
             }
             steps{
                 script{
-                    println("${API_to_build}")
-                    println("${Build_All}")
-                    println("${ParamA}")
                     sh "echo i will build now, and i have a latest commit in ${params.API_to_build}"
                 }
             }
