@@ -25,7 +25,7 @@ pipeline{
                     def modulesFile = "modules.json"
 
                     def modulesList = repos.getListModules(modulesFile)
-                    println modulesList
+
                 }
             }
 
