@@ -6,7 +6,7 @@ pipeline {
     parameters {
 
         choice(name: 'API_to_build', choices: ['AlertsAPI', 'CustomerAPI'])
-        booleanParam(name:'Build_All',defaultvalue: false)
+        booleanParam(name:'Build_All',defaultValue: false)
 
     }
 
