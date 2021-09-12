@@ -26,7 +26,7 @@ pipeline{
             when { allOf {
                 changeset "*/${params.API_to_build}/**"
                 expression { params.ParamA == 'Orchestration' }
-            }
+            }}
 
             }
             steps{
@@ -39,4 +39,3 @@ pipeline{
 
     }
 
-}

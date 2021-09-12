@@ -23,7 +23,7 @@ pipeline {
                 allOf {
                     changeset "*/${params.API_to_build}/**"
                     expression { params.ParamA == 'Orchestration' }
-                }
+                }}
                 steps {
                     script {
                         sh "echo i will build now, and i have a latest commit in ${params.API_to_build}"
@@ -35,4 +35,3 @@ pipeline {
         }
     }
 
-}
