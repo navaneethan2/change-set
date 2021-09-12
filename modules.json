@@ -1,0 +1,13 @@
+{
+  "modules_list": {
+    "modules": [
+      {
+        "name": "API",
+        "modules_name": [
+          {"name": "AlertsAPI"},
+          {"name": "CustomerAPI"}
+        ]
+      }
+    ]
+  }
+}
