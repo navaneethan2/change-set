@@ -18,7 +18,7 @@ pipeline{
             }
         }
         stage('changeset'){
-            when { allOf {
+            when {
                 changeset "*/${params.API_to_build}/**"
                 //expression { params.ParamA == 'Orchestration' }
             }
@@ -31,4 +31,3 @@ pipeline{
             }
         }
     }
-}
