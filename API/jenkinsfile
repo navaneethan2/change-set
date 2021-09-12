@@ -10,6 +10,14 @@ pipeline{
     }
 
     stages {
+
+        stage('Debug') {
+            steps{
+                script{
+                    println(${params.API_to_build})
+                }
+            }
+        }
         stage('Build'){
             when{
                 expression{ params.Build == true}
