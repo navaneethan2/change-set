@@ -25,7 +25,7 @@ pipeline{
                 steps{
                     script{
                         sh "echo i will build now, and i have a latest commit in ${params.API_to_build}"
-                        sh "cd ${env.WORKSPACE}"
+                        sh "cd ${env.WORKSPACE} && ls -ltr"
                     }
 
                 }
