@@ -14,6 +14,7 @@ pipeline{
                 script {
 
                     repos = load 'scripts/modules.groovy'
+                    println repos
                 }
             }
         }
