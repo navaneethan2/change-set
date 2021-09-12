@@ -5,7 +5,7 @@ pipeline{
 
     parameters{
         choice(name:'API_to_build',choices:['AlertAPI','CustomerAPI'])
-        booleanParam(name: 'Build',defaultValue: false)
+        booleanParam(name: 'Build_is',defaultValue: false)
         //string(name:'ParamA', defaultValue:'Build')
     }
 
@@ -15,7 +15,7 @@ pipeline{
             steps{
                 script{
                     println("${API_to_build}")
-                    println("${Build}")
+                    println("${Build_is}")
                 }
             }
         }
