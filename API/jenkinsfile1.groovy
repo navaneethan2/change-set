@@ -6,11 +6,16 @@ pipeline {
     parameters {
 
         choice(name: 'API_to_build', choices: ['AlertsAPI', 'CustomerAPI'])
+        booleanParam(name:'Build_All',defaultvalue: false)
+
     }
 
     stages {
 
         stage('debug') {
+            when{
+                expression{params.Build_All == true}
+            }
             steps {
                 script {
                     println "${params.ParamA}"
