@@ -8,12 +8,21 @@ pipeline{
         choice(name:'API_to_build',choices:['AlertsAPI','CustomerAPI'])
     }*/
     stages{
+
+        stage('LOAD') {
+            steps {
+                script {
+
+                    repos = load 'scripts/modules.groovy'
+                }
+            }
+        }
         stage('pass parameter') {
 
             steps{
                 script{
                     def modulesFile = "modules.json"
-                    def modulesList = modules.getListModules(modulesFile)
+                    def modulesList = repos.getListModules(modulesFile)
                     println modulesList
                 }
             }
