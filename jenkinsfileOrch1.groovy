@@ -22,6 +22,7 @@ pipeline{
             steps{
                 script{
                     def modulesFile = "modules.json"
+                    println modulesFile
                     def modulesList = repos.getListModules(modulesFile)
                     println modulesList
                 }
