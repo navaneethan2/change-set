@@ -14,7 +14,7 @@ pipeline{
                 script {
 
                     repos = load 'scripts/modules.groovy'
-                    println repos
+                    sh"cat repos"
                 }
             }
         }
@@ -23,7 +23,7 @@ pipeline{
             steps{
                 script{
                     def modulesFile = "modules.json"
-                    println modulesFile
+                    sh "cat modulesFile"
                     def modulesList = repos.getListModules(modulesFile)
                     println modulesList
                 }
