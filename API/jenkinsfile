@@ -14,7 +14,7 @@ pipeline{
         stage('Debug') {
             steps{
                 script{
-                    println(${params.API_to_build})
+                    println('${params.API_to_build}')
                 }
             }
         }
