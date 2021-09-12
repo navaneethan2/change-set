@@ -22,7 +22,7 @@ pipeline{
         }
         stage('Build'){
             when{
-                expression{ params.Build == true}
+                expression{ params.Build_All == true}
             }
             steps{
                 script{
@@ -41,6 +41,9 @@ pipeline{
             }
             steps{
                 script{
+                    println("${API_to_build}")
+                    println("${Build_All}")
+                    println("${ParamA}")
                     sh "echo i will build now, and i have a latest commit in ${params.API_to_build}"
                 }
             }
