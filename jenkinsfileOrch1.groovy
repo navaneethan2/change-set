@@ -3,7 +3,7 @@ def API_to_build = "CustomerAPI"
 
 API_modules = ['AlertsAPI','CustomerAPI']
 
-@NonCPS
+/*@NonCPS
 def echo_all(list) {
     def tasks = [:]
     list.each { item ->
@@ -13,7 +13,7 @@ def echo_all(list) {
             ]
         }
     }
-}
+}*/
 
 /*@NonCPS
 def echo_all(list){
@@ -55,8 +55,12 @@ pipeline{
                     //def modulesFile = "modules.json"
 
                     //def modulesList = repos.getListModules(modulesFile)
-                    echo_all(API_modules)
 
+                    def API_modules = ['AlertsAPI','CustomerAPI']
+
+                    for (int i = 0; i < API_modules.size(); ++i){
+                        echo "${API_modules[i]}"
+                    }
 
 
                 }
