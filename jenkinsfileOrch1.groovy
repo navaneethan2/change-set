@@ -11,8 +11,13 @@ def echo_all(list){
         echo "API Module - ${item}"
         def API_to_build =  "${item}"
             println API_to_build
-            build job: 'test1', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: 'Orchestration'],
-                                         (string(name: 'API_to_build', value: API_to_build ))]
+            stage('orc'){
+                build job: 'test1', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: 'Orchestration'],
+                                                 (string(name: 'API_to_build', value: API_to_build ))]
+            }
+
+
+
 
     }
 }
