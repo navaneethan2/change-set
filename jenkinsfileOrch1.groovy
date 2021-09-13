@@ -1,5 +1,5 @@
 def paramAValue = "Orchestration"
-def API_to_build = "CustomerAPI"
+
 
 API_modules = ['AlertsAPI','CustomerAPI']
 
