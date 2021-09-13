@@ -5,6 +5,7 @@ API_modules = ['AlertsAPI','CustomerAPI']
 
 @NonCPS
 def echo_all(list) {
+    def tasks = [:]
     list.each { item ->
         tasks["${item}"] = { ->
             build job: 'test1', parameters: [
