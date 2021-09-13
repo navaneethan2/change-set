@@ -10,7 +10,7 @@ def echo_all(list){
     list.each { item ->
         echo "Hello ${item}"
         build job: 'test1', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: 'Orchestration'],
-                                         (string(name: 'API_to_build', value: ${item} ))]
+                                         (string(name: 'API_to_build', value: '${item}' ))]
 
     }
 }
