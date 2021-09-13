@@ -8,10 +8,11 @@ API_modules = ['AlertsAPI','CustomerAPI']
 @NonCPS
 def echo_all(list){
     list.each { item ->
-        echo "Hello ${item}"
+        echo "API Module - ${item}"
         def API_to_build =  "${item}"
-        build job: 'test1', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: 'Orchestration'],
-                                         (string(name: 'API_to_build', value: API_to_build ))]
+            println API_to_build
+            /*build job: 'test1', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: 'Orchestration'],
+                                         (string(name: 'API_to_build', value: API_to_build ))]*/
 
     }
 }
