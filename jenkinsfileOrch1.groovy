@@ -3,9 +3,19 @@ def API_to_build = "CustomerAPI"
 
 API_modules = ['AlertsAPI','CustomerAPI']
 
-
-
 @NonCPS
+def echo_all(list) {
+    def tasks = [:]
+    list.each { item ->
+        tasks["${item}"] = { ->
+            build job: 'test1', parameters: [
+                    [$class: 'StringParameterValue', name: 'branch', value: "${item}"]
+            ], propagate: false
+        }
+    }
+}
+
+/*@NonCPS
 def echo_all(list){
     list.each { item ->
         echo "API Module - ${item}"
@@ -19,7 +29,7 @@ def echo_all(list){
 
 
     }
-}
+}*/
 
 pipeline{
 
