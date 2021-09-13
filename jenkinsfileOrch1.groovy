@@ -1,6 +1,15 @@
 def paramAValue = "Orchestration"
 def API_to_build = "CustomerAPI"
 
+API_modules = ['AlertsAPI','CustomerAPI']
+
+@NonCPS
+def echo_all(list){
+    list.each { item ->
+        echo "Hello ${item}"
+    }
+}
+
 pipeline{
 
     agent any
@@ -22,9 +31,12 @@ pipeline{
 
             steps{
                 script{
-                    def modulesFile = "modules.json"
+                    //def modulesFile = "modules.json"
 
-                    def modulesList = repos.getListModules(modulesFile)
+                    //def modulesList = repos.getListModules(modulesFile)
+                    echo_all(API_modules)
+
+
 
                 }
             }
