@@ -9,7 +9,7 @@ API_modules = ['AlertsAPI','CustomerAPI']
 def echo_all(list){
     list.each { item ->
         echo "Hello ${item}"
-        def API_to_build = sh 'echo ${item}'
+        def API_to_build = echo '${item}'
         build job: 'test1', parameters: [[$class: 'StringParameterValue', name: 'ParamA', value: 'Orchestration'],
                                          (string(name: 'API_to_build', value: API_to_build ))]
 
