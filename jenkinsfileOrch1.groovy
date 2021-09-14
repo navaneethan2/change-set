@@ -2,7 +2,7 @@
 
 def buildJob(moduleName){
     def paramAValue = "Orchestration"
-    build job: 'test1',parameters: [ [$class: 'StringParameterValue',name: 'ParamA', value: paramAValue],(string(name: 'API_to_build', value: "moduleName"))]
+    build job: 'test1',parameters: [ [$class: 'StringParameterValue',name: 'ParamA', value: paramAValue],(string(name: 'orch_Api', value: moduleName))]
 }
 
 

@@ -26,7 +26,7 @@ pipeline {
         stage('changeset') {
             when {
                 allOf {
-                    changeset "*/${params.API_to_build}/**"
+                    changeset "*/${params.orch_Api}/**"
                     expression { params.ParamA == 'Orchestration' }
                 }}
                 steps {
