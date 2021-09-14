@@ -48,7 +48,12 @@ pipeline{
                 }
             }
         }
-        stage('pass parameter') {
+
+        stage('testing'){
+            build job: 'test1', parameters: [string(name: 'ParamA', value: 'paramAValue'),string(name:'API_to_build',value:'AlertsAPI')], quietPeriod: 2, wait: false
+            build job: 'test1', parameters: [string(name: 'ParamA', value: 'paramAValue'),string(name:'API_to_build',value:'CustomerAPI')], quietPeriod: 2, wait: false
+        }
+        /*stage('pass parameter') {
 
             steps{
                 script{
@@ -75,6 +80,18 @@ pipeline{
                                                  (string(name: 'API_to_build', value: API_to_build ))]
 
             }*/
+
+        /*stage('testing') {
+            def branches = [:]
+
+            for(i = 0; i < params.size(); i += 1) {
+                def param = params[i]
+
+                branches["Test${i}"] = {
+                    build job: 'Test', parameters: [string(name: 'Name', value: param)], quietPeriod: 2
+                }
+            }
+            parallel branches
+        }*/
         }
     }
-}
