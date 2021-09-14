@@ -102,5 +102,5 @@ pipeline{
             }
             //parallel branches
         }
-        }
+}
 
