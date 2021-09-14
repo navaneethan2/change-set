@@ -3,7 +3,7 @@ def echo_all(moduleName) {
     moduleName.each { item ->
 
         echo "Hello ${item}"
-        echo "build job: 'test1',parameters: [ string(name: 'ParamA', value: paramAValue),(string(name: 'orch_Api', value: ${item}))]"
+        echo "build job: 'test1',parameters: [ string(name: 'ParamA', value: paramAValue),(string(name: 'orch_Api', value: "${item}"))]"
         buildJob(${item})
     }
 }
