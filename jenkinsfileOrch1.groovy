@@ -52,8 +52,11 @@ pipeline{
         stage('testing'){
 
             steps{
-                build job: 'test1', parameters: [[$class: 'StringParameterValue'(name: 'ParamA', value: 'paramAValue')],string(name:'API_to_build',value:'AlertsAPI')], quietPeriod: 2, wait: false
-                build job: 'test1', parameters: [[$class: 'StringParameterValue'(name: 'ParamA', value: 'paramAValue')],string(name:'API_to_build',value:'CustomerAPI')], quietPeriod: 2, wait: false
+                script{
+                    build job: 'test1', parameters: [[$class: 'StringParameterValue'(name: 'ParamA', value: 'paramAValue')],string(name:'API_to_build',value:'AlertsAPI')], quietPeriod: 2, wait: false
+                    build job: 'test1', parameters: [[$class: 'StringParameterValue'(name: 'ParamA', value: 'paramAValue')],string(name:'API_to_build',value:'CustomerAPI')], quietPeriod: 2, wait: false
+                }
+
 
             }
 
