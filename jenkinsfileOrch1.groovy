@@ -1,17 +1,16 @@
 @NonCPS
 def echo_all(moduleName) {
     moduleName.each { item ->
-        def paramAValue = "Orchestration"
+
         echo "Hello ${item}"
         echo "build job: 'test1',parameters: [ string(name: 'ParamA', value: paramAValue),(string(name: 'orch_Api', value: ${item}))]"
-         sh 'build job: 'test1',parameters: [ string(name: 'ParamA', value: paramAValue),string(name: 'orch_Api', value: '${item}')]'
-         sleep 30
+        buildJob(${item})
     }
 }
 
 def buildJob(moduleName){
     def paramAValue = "Orchestration"
-    build job: 'test1',parameters: [ [$class: 'StringParameterValue',name: 'ParamA', value: paramAValue],(string(name: 'orch_Api', value: moduleName))]
+    build job: 'test1',parameters: [ [$class: 'StringParameterValue',name: 'ParamA', value: paramAValue],(string(name: 'orch_Api', value: ${item}))]
 }
 
 
