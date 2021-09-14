@@ -17,6 +17,7 @@ pipeline {
                     for (int i = 0; i < API_modules.size(); ++i) {
                         echo "${API_modules[i]}"
                         echo "build job: 'test1',parameters: [ string:(name: 'ParamA', value: paramAValue),(string(name: 'API_to_build', value: '${API_modules[i]}'))]"
+                        build job: 'test1',parameters: [ [$class: 'StringParameterValue',name: 'ParamA', value: paramAValue],(string(name: 'API_to_build', value: '${API_modules[i]}'))]
 
                     }
 
