@@ -10,7 +10,7 @@ def echo_all(moduleName) {
 
 def buildJob(moduleName){
     def paramAValue = "Orchestration"
-    build job: 'test1',parameters: [ [$class: 'StringParameterValue',name: 'ParamA', value: paramAValue],(string(name: 'orch_Api', value: '${item}'))]
+    build job: 'test1',parameters: [ [$class: 'StringParameterValue',name: 'ParamA', value: paramAValue],(string(name: 'orch_Api', value: "${item}"))]
 }
 
 
