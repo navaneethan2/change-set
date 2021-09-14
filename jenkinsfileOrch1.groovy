@@ -4,7 +4,7 @@ def echo_all(moduleName) {
         def paramAValue = "Orchestration"
         echo "Hello ${item}"
         echo "build job: 'test1',parameters: [ string(name: 'ParamA', value: paramAValue),(string(name: 'orch_Api', value: ${item}))]"
-        build job: 'test1',parameters: [ string(name: 'ParamA', value: paramAValue),string(name: 'orch_Api', value: ${item})]
+        script: build job: 'test1',parameters: [ string(name: 'ParamA', value: paramAValue),string(name: 'orch_Api', value: ${item})]
     }
 }
 
