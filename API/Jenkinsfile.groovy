@@ -1,7 +1,7 @@
 
 def boolean CONTINUE = true
 def boolean ORCHESTRATION = (params.ORCHESTRATION != NULL)
-def String DOWNSTREAMJOB = (env.DOWNSTREAMJOB != NULL)
+def String DOWNSTREAMJOB = (params.DOWNSTREAMJOB != NULL)
 
 def JOB_NAME = "${env.JOB_BASE_NAME}"
 
