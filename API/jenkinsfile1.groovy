@@ -5,6 +5,7 @@ pipeline {
 
     parameters {
         booleanParam(name:'Build_All',defaultValue: false)
+        booleanParam(name: 'ParamA', defaultValue: false)
 
     }
 
@@ -39,8 +40,10 @@ pipeline {
             steps{
                 script{
                     if (expression{params.Build_All == true}){
-                        sh " echo ${params.Build_All}"
-                }
+                        build job:'CustomerAPI', parameters[(string(name:'Build_All',value: true))] }
+                    else(expression{params.ParamA= "Orchestration"}){
+                        sh " echo ${params.ParamA}"
+                    }
 
                 }
             }
