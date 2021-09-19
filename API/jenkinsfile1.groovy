@@ -35,6 +35,13 @@ pipeline {
 
                 }
             }
+        stage("Downstream") {
+            steps{
+                if (expression{params.Build_All == true}){
+                    sh " echo ${params.Build_All}"
+                }
+            }
+        }
         }
     }
 
