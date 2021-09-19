@@ -10,9 +10,7 @@ pipeline{
 
     stages{
         stage('get parameter'){
-
-            println ORCHESTRATION
-
+            sh "echo ${ORCHESTRATION}"
             stages{
                 stage('get params'){
                     when{
