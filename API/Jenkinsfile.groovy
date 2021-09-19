@@ -1,6 +1,6 @@
 
 def boolean CONTINUE = true
-//def boolean ORCHESTRATION = (params.ORCHESTRATION != null)
+def boolean ORCHESTRATION = (params.ORCHESTRATION != null)
 def String DOWNSTREAMJOB = (params.DOWNSTREAMJOB != null)
 
 def JOB_NAME = "${env.JOB_BASE_NAME}"
@@ -32,13 +32,13 @@ pipeline{
                     when{expression {CONTINUE}}
                     steps{
                         script{
-                            sh "echo I am build now as ${JOB_NAME} , ${CONTINUE}"
+                            sh "echo I am build now as ${JOB_NAME} "
                         }
                     }
                 }
 
                 stage('Downstrea_build'){
-                    when{expression{CONTINUE}}
+                    when{expression {CONTINUE} }
 
                     steps{
                         script{
