@@ -4,9 +4,7 @@ def API_to_build = "CustomerAPI"
 pipeline{
 
     agent any
-    parameters{
-        choice(name:'API_to_build',choices:['AlertsAPI','CustomerAPI'])
-    }
+
     stages{
         stage('pass parameter') {
 
