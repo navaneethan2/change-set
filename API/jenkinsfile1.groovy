@@ -5,7 +5,6 @@ pipeline {
 
     parameters {
         booleanParam(name:'Build_All',defaultValue: false)
-        booleanParam(name: 'ParamA', defaultValue: Orchestration)
 
     }
 
@@ -26,7 +25,7 @@ pipeline {
             when {
                 allOf {
                     changeset "*/${params.orch_Api}/**"
-                    expression { params.ParamA == 'Orchestration' }
+                    expression { params.ParamA == 'Orchestration'}
                 }}
                 steps {
                     script {
@@ -41,7 +40,7 @@ pipeline {
                 script{
                     if (expression{params.Build_All == true}){
                         build job:'CustomerAPI', parameters: [(string(name:'Build_All',value: "${params.Build_All}"))] }
-                    else(expression{params.ParamA= "Orchestration"}){
+                    else(expression{params.ParamA == "Orchestration"}){
                         build job:'CustomerAPI', parameters: [(string(name:'ParamA',value: "${params.ParamA}"))] }
                     }
 
