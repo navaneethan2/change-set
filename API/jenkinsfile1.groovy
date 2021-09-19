@@ -11,13 +11,11 @@ pipeline {
     stages {
 
         stage('debug') {
-            when{
-                expression{params.Build_All == true}
-            }
+
             steps {
                 script {
                     println "${params.ParamA}"
-                    println "${params.API_to_build}"
+                    println "${JOB_NAME}"
                 }
             }
         }
