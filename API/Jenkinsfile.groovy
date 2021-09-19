@@ -20,6 +20,7 @@ pipeline {
                 script {
                     if (ORCHESTRATION) {
                         CONTINUE = false
+                        return
                     }
                     sh "echo ORCHESTRATION"
                     sh "echo i am skipping as no change is in folder ${JOB_NAME}"
