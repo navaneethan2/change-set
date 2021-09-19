@@ -1,5 +1,5 @@
 
-def boolean BUILD_ALL = true
+def boolean CONTINUE = true
 def boolean ORCHESTRATION = (params.ORCHESTRATION != null)
 //def String DOWNSTREAMJOB = "CustomerAPI"
 
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 script {
                     if (ORCHESTRATION) {
-                        BUILD_ALL = false
+                        CONTINUE = false
                     }
                     sh "echo ORCHESTRATION"
                     sh "echo i am skipping as no change is in folder ${JOB_NAME}"
@@ -29,7 +29,7 @@ pipeline {
 
 
             stage('Build') {
-                when { expression { BUILD_ALL } }
+                when { expression { CONTINUE } }
                 steps {
                     script {
                         sh "echo I am build now as ${JOB_NAME} "
