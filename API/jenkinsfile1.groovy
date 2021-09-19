@@ -40,7 +40,7 @@ pipeline {
             steps{
                 script{
                     if (expression{params.Build_All == true}){
-                        build job:'CustomerAPI', parameters[(string(name:'Build_All',value: "${params.Build_All}"))] }
+                        build job:'CustomerAPI', parameters: [(string(name:'Build_All',value: "${params.Build_All}"))] }
                     else(expression{params.ParamA= "Orchestration"}){
                         sh " echo ${params.ParamA}"
                     }
