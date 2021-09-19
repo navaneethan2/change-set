@@ -37,8 +37,11 @@ pipeline {
             }
         stage("Downstream") {
             steps{
-                if (expression{params.Build_All == true}){
-                    sh " echo ${params.Build_All}"
+                script{
+                    if (expression{params.Build_All == true}){
+                        sh " echo ${params.Build_All}"
+                }
+
                 }
             }
         }
