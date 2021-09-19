@@ -1,4 +1,4 @@
-
+def JOB_NAME = "${env.JOB_BASE_NAME}"
 pipeline {
 
     agent any
@@ -24,7 +24,7 @@ pipeline {
         stage('changeset') {
             when {
                 allOf {
-                    changeset "*/${params.orch_Api}/**"
+                    changeset "/${JOB_NAME}/**"
                     expression { params.ParamA == 'Orchestration'}
                 }}
                 steps {
