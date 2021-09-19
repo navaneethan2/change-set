@@ -33,7 +33,7 @@ pipeline{
                     when{expression {CONTINUE}}
                     steps{
                         script{
-                            sh "echo I am build now as , ${CONTINUE}"
+                            sh "echo I am build now as ${JOB_NAME} , ${CONTINUE}"
                         }
                     }
                 }
@@ -46,7 +46,7 @@ pipeline{
                                 echo "No Downstream Job"
                             }
                             else{
-                                build job: "${DOWNSTREAMJOB}", parameters: [string(params.ORCHESTRATION)]
+                                build job: "${DOWNSTREAMJOB}", parameters: [string(name: 'ORCHESTRATION',value: "1")]
                             }
                         }
                     }
