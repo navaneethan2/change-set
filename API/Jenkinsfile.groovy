@@ -18,13 +18,14 @@ pipeline {
 
             steps {
                 script {
-                    if (ORCHESTRATION){
+                    if (ORCHESTRATION) {
                         BUILD_ALL = false
                     }
                     sh "echo ORCHESTRATION"
                     sh "echo i am skipping as no change is in folder ${JOB_NAME}"
                 }
             }
+        }
 
 
             stage('Build') {
@@ -51,4 +52,4 @@ pipeline {
             }*/
         }
     }
-}
+
